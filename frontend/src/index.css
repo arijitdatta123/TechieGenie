@@ -1,0 +1,46 @@
+.video-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+.bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-overlay {
+  position: absolute;
+  left: 0; right: 0;
+  top: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* allow button to be clickable only */
+}
+
+.overlay-mic {
+  pointer-events: auto;
+  padding: 14px 20px;
+  font-size: 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  border: none;
+  cursor: pointer;
+}
+
+.subtitles {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 2rem;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+}

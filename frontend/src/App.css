@@ -1,0 +1,101 @@
+/* ---------- FULLSCREEN ROOT ---------- */
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  position: relative;
+}
+
+/* ---------- BACKGROUND VIDEO ---------- */
+.video-panel video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* ---------- SUBTITLE BOX ---------- */
+.subtitle-box {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 15px 22px;
+  border-radius: 14px;
+  font-size: 20px;
+  color: #e8e8e8;
+  text-align: center;
+  backdrop-filter: blur(4px);
+  z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* When AI is speaking – glow effect */
+.subtitle-box.speaking {
+  box-shadow: 0 0 15px #00ffffaa;
+  border-color: #00ffffaa;
+}
+
+/* ---------- MIC BUTTON ---------- */
+.mic-container {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.mic-btn {
+  background: #00ffff;
+  color: #000;
+  font-size: 20px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+.mic-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 12px #00ffff;
+}
+
+.mic-btn.recording {
+  background: #ff0044;
+  color: #fff;
+  box-shadow: 0 0 15px #ff0044;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  color: #ffffffaa;
+  font-size: 14px;
+  z-index: 5;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .subtitle-box {
+    font-size: 16px;
+    bottom: 120px;
+    max-width: 90%;
+  }
+
+  .mic-btn {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+}
