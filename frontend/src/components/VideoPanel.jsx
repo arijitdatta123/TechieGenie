@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function VideoPanel({ videoUrl, onPlayDefault, botText, onStartRecording, isProcessing }) {
+export default function VideoPanel({ videoUrl, onPlayDefault, botText, onStartRecording, isProcessing, onResetSubtitle }) {
   // videoUrl: may be null or a URL like "/static/videos/VID001.mp4"
   // onPlayDefault: optional callback when launch/ default video is (re)started
   const defaultSrc = "/launch/Default_Launch.mp4";
@@ -43,6 +43,7 @@ export default function VideoPanel({ videoUrl, onPlayDefault, botText, onStartRe
       setIsDefault(true);
 
       if (onPlayDefault) onPlayDefault();
+      if (onResetSubtitle) onResetSubtitle();
     }
     // if default video ends, do nothing (looping will handle)
   };
@@ -85,7 +86,7 @@ export default function VideoPanel({ videoUrl, onPlayDefault, botText, onStartRe
 
       {/* Subtitles / always show bot text */}
       <div className="subtitles">
-        {botText || "Ask me something…"}
+        {botText || ""}
       </div>
     </div>
   );

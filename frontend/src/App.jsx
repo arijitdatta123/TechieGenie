@@ -4,7 +4,7 @@ import VideoPanel from "./components/VideoPanel";
 import { sendVoice } from "./api/voiceChat";
 
 export default function App() {
-  const [botText, setBotText] = useState("TechiGenie is listening…");
+  const [botText, setBotText] = useState("");
   const [videoUrl, setVideoUrl] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -14,6 +14,7 @@ export default function App() {
 
   function triggerRecording() {
     console.log("▶ Triggering actual recorder…");
+    setBotText("TechieGenie is Listening...");
     if (recorderRef.current) {
       recorderRef.current();
     }
@@ -52,6 +53,7 @@ export default function App() {
         onStartRecording={triggerRecording}
         onPlayDefault={handleDefaultVideo}   // ✔ NOW IT WORKS
         isProcessing={isProcessing}
+        onResetSubtitle={() => setBotText("")}
       />
 
       <VoiceRecorder
