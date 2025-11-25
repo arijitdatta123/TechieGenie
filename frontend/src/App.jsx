@@ -7,6 +7,8 @@ export default function App() {
   const [botText, setBotText] = useState("TechiGenie is listening…");
   const [videoUrl, setVideoUrl] = useState(null);
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+
 
   const recorderRef = useRef(null);
 
@@ -23,6 +25,7 @@ export default function App() {
   }
 
   async function handleRecorded(blob) {
+    setIsProcessing(true);
     setBotText("Processing…");
 
     const res = await sendVoice(blob);
@@ -34,7 +37,10 @@ export default function App() {
       const audio = new Audio(res.audio_url);
       setIsSpeaking(true);
       audio.onended = () => setIsSpeaking(false);
+      setIsProcessing(false);  // 🔥 Re-show the button when bot finishes
       audio.play();
+    } else {
+      setIsProcessing(false);  // Just in case
     }
   }
 
@@ -45,6 +51,7 @@ export default function App() {
         botText={botText}
         onStartRecording={triggerRecording}
         onPlayDefault={handleDefaultVideo}   // ✔ NOW IT WORKS
+        isProcessing={isProcessing}
       />
 
       <VoiceRecorder
