@@ -59,9 +59,9 @@ export default function App() {
         registerStart={(fn) => (recorderRef.current = fn)}
       />
 
-      <footer className="footer">
+      {/* <footer className="footer">
         Technovate • TechiGenie Demo
-      </footer>
+      </footer> */}
     </div>
   );
 }

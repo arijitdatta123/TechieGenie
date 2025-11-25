@@ -32,12 +32,12 @@ export default function VoiceRecorder({ onRecorded, registerStart }) {
     if (registerStart) registerStart(startRecording);
   }, []);
 
-  return (
-    <button
-      className={`mic-btn ${isRecording ? "recording" : ""}`}
-      onClick={startRecording}
-    >
-      🎤 Tap to Speak
-    </button>
-  );
+//   return (
+//     <button
+//       className={`mic-btn ${isRecording ? "recording" : ""}`}
+//       onClick={startRecording}
+//     >
+//       🎤 Tap to Speak
+//     </button>
+//   );
 }

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export default function VideoPanel({ videoUrl, onPlayDefault, botText, onStartRecording, isProcessing }) {
   // videoUrl: may be null or a URL like "/static/videos/VID001.mp4"
   // onPlayDefault: optional callback when launch/ default video is (re)started
-  const defaultSrc = "/launch/Default_Launch.mp4";
+  const defaultSrc = "/launch/RoboFace.mp4";
   const videoRef = useRef(null);
   const [currentSrc, setCurrentSrc] = useState(defaultSrc);
   const [isDefault, setIsDefault] = useState(true);
